@@ -49,7 +49,7 @@ build: false  # Not a C# project, build stuff at the test step instead.
 
 test_script:
   # Compile the songbooks
-  - "songbook patadata\\patadata-master\\books\\songbook"
+  - "songbook patadata\\patadata-master\\books\\songbook -v"
   - "dir patadata\\patadata-master\\books"
   - "dir ."
 
