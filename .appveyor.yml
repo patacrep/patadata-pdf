@@ -3,15 +3,13 @@ environment:
     - PYTHON: "C:\\Python34"
       PYTHON_VERSION: "3.4.x" # currently 3.4.3
       PYTHON_ARCH: "32"
+  access_token:
+    secure: dUqKkqxYQp2WBhKWr7dtWRM4TA7/YFXCL8TC/KwVxif6Mie71tJtyQ38zQYoiojj
 
 branches:
   only:
     - master # temp for debug purposes
     - trigger
-
-environment:
-  access_token:
-    secure: dUqKkqxYQp2WBhKWr7dtWRM4TA7/YFXCL8TC/KwVxif6Mie71tJtyQ38zQYoiojj
 
 install:
   # Download setup scripts and unzip
