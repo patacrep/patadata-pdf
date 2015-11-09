@@ -35,7 +35,7 @@ install:
   - "git checkout master"
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  - git config --global user.email "appveyor@example.com"
+  - git config --global user.email "team@appveyor.com"
   - git config --global user.name "AppVeyor"
   - git config --global push.default simple
 
