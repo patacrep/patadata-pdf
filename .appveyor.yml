@@ -34,7 +34,7 @@ install:
   - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./test.txt"
   - "git checkout master"
   - "git add test.txt"
-  - "git commit -m 'Automic build (AppVeyor)"
+  - "git commit -m \"Automic build (AppVeyor)\""
   - "git push"
   # ENDTEST: checkout
 
