@@ -38,7 +38,7 @@ install:
   - cmd: luaotfload-tool.exe --update
 
   # Manually install required texlive packages
-  - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./texlive_packages.txt}"
+  - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./texlive_packages.txt"
   - cmd: mpm.exe --install-some texlive_packages.txt
 
 build: false  # Not a C# project, build stuff at the test step instead.
@@ -49,4 +49,4 @@ test_script:
 
 # Cache Miktex Portable file
 cache:
-- C:\projects\patacrep\miktex-portable.exe
+- C:\projects\patadata-pdf\miktex-portable.exe
