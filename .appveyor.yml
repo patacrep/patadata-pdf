@@ -32,7 +32,7 @@ install:
   - "7z x miktex-portable.exe * -aot -omiktex > nul"
 
   # Let the binaries be directly callable
-  - cmd: set PATH=%PATH%;C:\projects\patacrep\miktex\miktex\bin
+  - cmd: set PATH=%PATH%;C:\projects\patadata-pdf\miktex\miktex\bin
 
   # Update fonts
   - cmd: luaotfload-tool.exe --update
