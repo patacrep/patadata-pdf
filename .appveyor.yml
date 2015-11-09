@@ -44,7 +44,7 @@ install:
   # Retrieve patadata
   - ps: "wget https://github.com/patacrep/patadata/archive/master.zip -OutFile ./patadata.zip"
   - "7z x patadata.zip * -aot -opatadata > nul"
-  - "dir patadata\patadata-master"
+  - "dir patadata\\patadata-master"
 
 build: false  # Not a C# project, build stuff at the test step instead.
 
