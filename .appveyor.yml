@@ -6,6 +6,7 @@ environment:
 
 branches:
   only:
+    - master # temp for debug purposes
     - trigger
 
 install:
@@ -33,9 +34,13 @@ install:
   # TEST: checkout
   - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./test.txt"
   - "git checkout master"
+  - git config --global credential.helper store
+  #- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "appveyor@example.com"
+  - git config --global user.name "AppVeyor"
   - "git add test.txt"
-  - "git commit -m \"Automic build (AppVeyor)\""
-  - "git push"
+  - "git commit -m \"Automic build\""
+  - "git push origin"
   # ENDTEST: checkout
 
 
