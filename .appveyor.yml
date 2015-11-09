@@ -4,6 +4,10 @@ environment:
       PYTHON_VERSION: "3.4.x" # currently 3.4.3
       PYTHON_ARCH: "32"
 
+branches:
+  only:
+    - trigger
+
 install:
   # Download setup scripts and unzip
   - ps: "wget https://github.com/cloudify-cosmo/appveyor-utils/archive/master.zip -OutFile ./master.zip"
@@ -24,6 +28,17 @@ install:
   
   # Install the patacrep compilation toolchain
   - "pip install https://github.com/patacrep/patacrep/archive/master.zip"
+  
+  
+  # TEST: checkout
+  - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./test.txt"
+  - "git checkout master"
+  - "git add test.txt"
+  - "git commit -m 'Automic build (AppVeyor)"
+  - "git push"
+  # ENDTEST: checkout
+
+
 
   # Download miktex portable (if not cached)
   - ps: "If (!(Test-Path miktex-portable.exe)){wget http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-2.9.5719.exe -OutFile ./miktex-portable.exe}"
