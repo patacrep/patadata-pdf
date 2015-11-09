@@ -12,9 +12,6 @@ install:
   # Install Python (from the official .msi of http://python.org) and pip when
   # not already installed.
   - "powershell ./appveyor/install.ps1"
-  
-  # Install the patacrep compilation toolchain
-  - "pip install https://github.com/patacrep/patacrep/archive/master.zip"
 
   # Prepend newly installed Python to the PATH of this build (this cannot be
   # done from inside the powershell script as it would require to restart
@@ -24,6 +21,9 @@ install:
   # Check that we have the expected version and architecture for Python
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  
+  # Install the patacrep compilation toolchain
+  - "pip install https://github.com/patacrep/patacrep/archive/master.zip"
 
   # Download miktex portable (if not cached)
   - ps: "If (!(Test-Path miktex-portable.exe)){wget http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-2.9.5719.exe -OutFile ./miktex-portable.exe}"
