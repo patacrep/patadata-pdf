@@ -9,6 +9,10 @@ branches:
     - master # temp for debug purposes
     - trigger
 
+environment:
+  access_token:
+    secure: dUqKkqxYQp2WBhKWr7dtWRM4TA7/YFXCL8TC/KwVxif6Mie71tJtyQ38zQYoiojj
+
 install:
   # Download setup scripts and unzip
   - ps: "wget https://github.com/cloudify-cosmo/appveyor-utils/archive/master.zip -OutFile ./master.zip"
@@ -35,7 +39,7 @@ install:
   - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./test.txt"
   - "git checkout master"
   - git config --global credential.helper store
-  #- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "appveyor@example.com"
   - git config --global user.name "AppVeyor"
   - git config --global push.default simple
