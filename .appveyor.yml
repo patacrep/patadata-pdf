@@ -8,7 +8,6 @@ environment:
 
 branches:
   only:
-    - master # temp for debug purposes
     - trigger
 
 install:
@@ -31,22 +30,14 @@ install:
   
   # Install the patacrep compilation toolchain
   - "pip install https://github.com/patacrep/patacrep/archive/master.zip"
-  
-  
-  # TEST: checkout
-  - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./test.txt"
+
+  # Git setup
   - "git checkout master"
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "appveyor@example.com"
   - git config --global user.name "AppVeyor"
   - git config --global push.default simple
-  - "git add test.txt"
-  - "git commit -m \"Automic build\""
-  - "git push origin"
-  # ENDTEST: checkout
-
-
 
   # Download miktex portable (if not cached)
   - ps: "If (!(Test-Path miktex-portable.exe)){wget http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-2.9.5719.exe -OutFile ./miktex-portable.exe}"
@@ -75,6 +66,9 @@ test_script:
   - "songbook patadata\\patadata-master\\books\\songbook -v"
   - "dir patadata\\patadata-master\\books"
   - "dir ."
+  - "git add songbook.pdf"
+  - "git commit -m \"Automatic build\""
+  - "git push origin"
 
 # Cache Miktex Portable file
 cache:
