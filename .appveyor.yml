@@ -40,7 +40,7 @@ install:
   - git config --global push.default simple
 
   # Download miktex portable (if not cached)
-  - ps: "If (!(Test-Path miktex-portable.exe)){wget http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-2.9.5719.exe -OutFile ./miktex-portable.exe}"
+  - ps: "If (!(Test-Path miktex-portable.exe)){wget http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable.exe -OutFile ./miktex-portable.exe}"
 
   # Unzip miktex portable
   - "7z x miktex-portable.exe * -aot -omiktex > nul"
@@ -70,6 +70,6 @@ test_script:
   - "git commit -m \"Automatic build\""
   - "git push origin"
 
-# Cache Miktex Portable file
-cache:
-- C:\projects\patadata-pdf\miktex-portable.exe
+# Don't cache Miktex Portable file
+#cache:
+#- C:\projects\patadata-pdf\miktex-portable.exe
