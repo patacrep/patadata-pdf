@@ -53,7 +53,7 @@ install:
 
   # Manually install required texlive packages
   - ps: "wget https://raw.githubusercontent.com/patacrep/patacrep/master/texlive_packages.txt -OutFile ./texlive_packages.txt"
-  - cmd: mpm.exe --install-some texlive_packages.txt
+  - cmd: mpm.exe --install-some texlive_packages.txt --verbose
 
   # Retrieve patadata
   - ps: "wget https://github.com/patacrep/patadata/archive/yaml.zip -OutFile ./patadata.zip"
