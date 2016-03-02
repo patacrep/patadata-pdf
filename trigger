@@ -1,3 +1,6 @@
 Just to trigger AppVeyor, edit this file
 
-Oliverpool: integrate last patada changes
+Oliverpool:
+- integrate last patada changes
+- mpm randomly crashes: just try to restart it!
+
