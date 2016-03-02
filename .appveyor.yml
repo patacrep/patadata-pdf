@@ -56,15 +56,15 @@ install:
   - cmd: mpm.exe --install-some texlive_packages.txt
 
   # Retrieve patadata
-  - ps: "wget https://github.com/patacrep/patadata/archive/master.zip -OutFile ./patadata.zip"
+  - ps: "wget https://github.com/patacrep/patadata/archive/yaml.zip -OutFile ./patadata.zip"
   - "7z x patadata.zip * -aot -opatadata > nul"
 
 build: false  # Not a C# project, build stuff at the test step instead.
 
 test_script:
   # Compile the songbooks
-  - "songbook patadata\\patadata-master\\books\\songbook -v"
-  - "dir patadata\\patadata-master\\books"
+  - "songbook patadata\\patadata-yaml\\books\\songbook -v"
+  - "dir patadata\\patadata-yaml\\books"
   - "dir ."
   - "git add songbook.pdf"
   - "git commit -m \"Automatic build\""
